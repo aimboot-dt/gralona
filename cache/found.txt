@@ -1,0 +1,11 @@
+Package: mint-themes
+Version: 2.0.9
+Architecture: all
+Maintainer: Clement Lefebvre <root@linuxmint.com>
+Installed-Size: 46356
+Depends: mint-x-icons, mint-y-icons
+Conflicts: cinnamon-themes, mint-clearloox-theme, mint-themes-gtk3, mint-x-theme, mint-y-theme, mint-z-theme
+Replaces: cinnamon-themes, mint-clearloox-theme, mint-themes-gtk3, mint-x-theme, mint-y-theme, mint-z-theme
+Priority: optional
+Section: gnome
+Filename: pool/main/m/mint-themes/mint-themes_2.0.9_all.deb
