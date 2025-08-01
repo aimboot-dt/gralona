@@ -56,15 +56,15 @@ You can customize the repository URL in gralona.sh.
 
 🔧 Features & Roadmap
 	
-	|Feature |Status|
-	|:--- | ---:|
-	|Package search|✅ Built-in|
-	|.deb download | ✅ ✅ |
-	|Installation |	✅ dpkg -i |
-	|Auto-fix deps |🔨 Future |
-	|Version aware |🔨 Future |
-	|Repository caching 🔨 Future |
-	|Cleaner CLI flags| 🔨 Future |
+	Feature | Status
+	:--- | ---:
+	Package search|✅ Built-in
+	.deb download | ✅ ✅ 
+	Installation |	✅ dpkg -i 
+	Auto-fix deps |🔨 Future 
+	Version aware |🔨 Future 
+	Repository caching 🔨 Future 
+	Cleaner CLI flags| 🔨 Future 
 
 ---
 
