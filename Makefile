@@ -1,7 +1,7 @@
 CC=gcc
-CFLAGS=-Wall -O2
+CFLAGS=-Wall -O2 -I src/inc
 TARGET=build/gralona
-OBJ= src/main.o src/repos.o
+OBJ=src/main.o src/refresh.o src/repos.o src/package_parser.o
 
 all: $(TARGET)
 
@@ -13,5 +13,6 @@ src/%.o: src/%.c
 
 clean:
 	rm -f $(TARGET)
+	rm -f src/*.o
 install: 
 	cp $(TARGET) /usr/local/bin/

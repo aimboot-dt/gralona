@@ -3,9 +3,7 @@
 #include <string.h>
 #include "repos.h"
 
-
-
-char* repo_urls[MAX_REPOS];
+Repo repos[MAX_REPOS];
 int repo_count = 0;
 
 void load_repos(const char* filename) {
@@ -15,12 +13,30 @@ void load_repos(const char* filename) {
         return;
     }
 
-    char line[MAX_LINE];
+    char line[600];
     while (fgets(line, sizeof(line), fp) && repo_count < MAX_REPOS) {
-        line[strcspn(line, "\n")] = '\0'; // trim newline
-        if (line[0] == '\0' || line[0] == '#') continue; // skip empty or comment lines
+        if (line[0] == '#' || line[0] == '\n') continue;
 
-        repo_urls[repo_count] = strdup(line); // strdup needs <string.h>
+        char *start = strchr(line, '[');
+        char *end = strchr(line, ']');
+        if (!start || !end || end < start) continue;
+
+        int name_len = end - start - 1;
+        if (name_len >= sizeof(repos[repo_count].name)) continue;
+
+        strncpy(repos[repo_count].name, start + 1, name_len);
+        repos[repo_count].name[name_len] = '\0';
+
+        char *url_start = end + 1;
+        while (*url_start == ' ' || *url_start == '\t') url_start++;
+
+        // Remove trailing newline
+        char *newline = strchr(url_start, '\n');
+        if (newline) *newline = '\0';
+
+        strncpy(repos[repo_count].url, url_start, sizeof(repos[repo_count].url) - 1);
+        repos[repo_count].url[sizeof(repos[repo_count].url) - 1] = '\0';
+
         repo_count++;
     }
 
