@@ -18,7 +18,8 @@
    cd gralona
 
 2. Compile and install the file
-    
+ 
+    ```bash
     make
     sudo make install
 
