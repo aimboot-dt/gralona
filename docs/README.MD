@@ -9,7 +9,7 @@
 
 ---
 
-## 🚀 Quick Start
+# 🚀 Quick Start
 
 1. Clone the repo:
 
@@ -27,7 +27,7 @@
 
 ---
 
-🧾 How It Works
+#🧾 How It Works
 
 - Downloads the Packages.gz index from a configured repository
 
@@ -43,7 +43,7 @@ You can customize the repository URL in gralona.sh.
 
 ---
 
-📂 Project Structure
+#📂 Project Structure
 
 	gralona/
 	├── gralona.sh         # Main shell script
@@ -54,7 +54,7 @@ You can customize the repository URL in gralona.sh.
 
 ---
 
-🔧 Features & Roadmap
+#🔧 Features & Roadmap
 	
 	Feature | Status
 	:--- | ---:
@@ -68,7 +68,7 @@ You can customize the repository URL in gralona.sh.
 
 ---
 
-🔄 Contribution
+#🔄 Contribution
 
 Go ahead 👍 If you're into:
 
@@ -84,13 +84,13 @@ you're totally welcome. Fork it, code it, send PRs, all help is welcome,
 
 ---
 
-⚖️ License
+#⚖️ License
 
 Distributed under the MIT License. See LICENSE.
 
 ---
 
-🛠️ Objective
+#🛠️ Objective
 
 This is not a full replacement for APT. Gralona is meant to be:
 
