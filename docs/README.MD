@@ -25,6 +25,8 @@
     ```bash
     ./gralona.sh <package-name> #e.g. ./gralona.sh mint-themes
 
+---
+
 ##🧾 How It Works
 
 - Downloads the Packages.gz index from a configured repository
@@ -39,24 +41,30 @@
 
 You can customize the repository URL in gralona.sh.
 
+---
+
 ##📂 Project Structure
 
-gralona/
-├── gralona.sh         # Main shell script
-├── repo.list          # Configuration for your repo(s)
-├── cache/             # Caches downloaded metadata
-├── docs/              # Optional docs or how‑tos
-└── TODO.md            # Roadmap & feature ideas
+	gralona/
+	├── gralona.sh         # Main shell script
+	├── repo.list          # Configuration for your repo(s)
+	├── cache/             # Caches downloaded metadata
+	├── docs/              # Optional docs or how‑tos
+	└── TODO.md            # Roadmap & feature ideas
+
+---
 
 ##🔧 Features & Roadmap
-Feature	Status
-Package search	✅ Built-in
-.deb download	✅ ✅
-Installation	✅ dpkg -i
-Auto-fix deps	🔨 Future
-Version aware	🔨 Future
-Repository caching	🔨 Future
-Cleaner CLI flags	🔨 Future
+	Feature	Status
+	Package search	✅ Built-in
+	.deb download	✅ ✅
+	Installation	✅ dpkg -i
+	Auto-fix deps	🔨 Future
+	Version aware	🔨 Future
+	Repository caching	🔨 Future
+	Cleaner CLI flags	🔨 Future
+
+---
 
 ##🔄 Contribution
 
@@ -72,9 +80,13 @@ Contributions? Hell yes. If you're into:
 
 …you're totally welcome. Fork it, code it, send PRs!
 
+---
+
 ##⚖️ License
 
 Distributed under the MIT License. See LICENSE.
+
+---
 
 ##🛠️ Objective
 
@@ -87,5 +99,7 @@ This is not a full replacement for APT. Gralona is meant to be:
     Expandable: lay groundwork to build more advanced features later.
 
     Cross Base (?): able to download packages from other Distro types (rpm, pacman, etc) (if that's even possible)
+
+
 Enjoy Gralona — your custom Debian package installer. If you get stuck, hit me up.
 
