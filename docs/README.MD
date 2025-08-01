@@ -17,13 +17,14 @@
    git clone https://github.com/aimboot-dt/gralona.git
    cd gralona
 
-2. Make the script executable
-    ```bash
-    chmod +x gralona.sh
+2. Compile and install the file
+    
+    make
+    sudo make install
 
 3. Install packages by name
     ```bash
-    ./gralona.sh <package-name> #e.g. ./gralona.sh mint-themes
+    gralona -i <package-name> #e.g. gralona -i mint-themes
 
 ---
 
@@ -46,10 +47,11 @@ You can customize the repository URL in gralona.sh.
 ## 📂 Project Structure
 
 	gralona/
-	├── gralona.sh         # Main shell script
 	├── repo.list          # Configuration for your repo(s)
 	├── cache/             # Caches downloaded metadata
 	├── docs/              # Optional docs or how‑tos
+	├── src/	       # Holds the source code for gralona 
+	├── build/	       # Output for compilation
 	└── TODO.md            # Roadmap & feature ideas
 
 ---
