@@ -7,8 +7,8 @@
 void load_repos(const char* filename);
 
 typedef struct {
-    char name[64];
-    char url[512];
+    char name[128];
+    char url[2048];
 } Repo;
 
 extern Repo repos[MAX_REPOS];
