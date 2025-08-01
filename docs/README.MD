@@ -27,7 +27,7 @@
 
 ---
 
-##🧾 How It Works
+🧾 How It Works
 
 - Downloads the Packages.gz index from a configured repository
 
@@ -43,7 +43,7 @@ You can customize the repository URL in gralona.sh.
 
 ---
 
-##📂 Project Structure
+📂 Project Structure
 
 	gralona/
 	├── gralona.sh         # Main shell script
@@ -54,21 +54,23 @@ You can customize the repository URL in gralona.sh.
 
 ---
 
-##🔧 Features & Roadmap
-	Feature	Status
-	Package search	✅ Built-in
-	.deb download	✅ ✅
-	Installation	✅ dpkg -i
-	Auto-fix deps	🔨 Future
-	Version aware	🔨 Future
-	Repository caching	🔨 Future
-	Cleaner CLI flags	🔨 Future
+🔧 Features & Roadmap
+	
+	|Feature |Status|
+	|:--- | ---:|
+	|Package search|✅ Built-in|
+	|.deb download | ✅ ✅ |
+	|Installation |	✅ dpkg -i |
+	|Auto-fix deps |🔨 Future |
+	|Version aware |🔨 Future |
+	|Repository caching 🔨 Future |
+	|Cleaner CLI flags| 🔨 Future |
 
 ---
 
-##🔄 Contribution
+🔄 Contribution
 
-Contributions? Hell yes. If you're into:
+Go ahead 👍 If you're into:
 
  Parsing Packages.gz metadata
 
@@ -78,17 +80,17 @@ Contributions? Hell yes. If you're into:
 
  Porting to C / Rust / Python
 
-…you're totally welcome. Fork it, code it, send PRs!
+you're totally welcome. Fork it, code it, send PRs, all help is welcome,
 
 ---
 
-##⚖️ License
+⚖️ License
 
 Distributed under the MIT License. See LICENSE.
 
 ---
 
-##🛠️ Objective
+🛠️ Objective
 
 This is not a full replacement for APT. Gralona is meant to be:
 
