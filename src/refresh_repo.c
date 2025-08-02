@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <curl/curl.h>
+#include <sys/stat.h>
+#include <unistd.h>
 #include "repos.h"
 #include "refresh_repo.h" 
 
@@ -19,8 +21,12 @@ int refresh_repo(const Repo* repo) {
 
     char cache_path[PATH_MAX];
     snprintf(cache_path, sizeof(cache_path), "%s/.local/gralona/cache/%s", home, repo->name);
-
-    FILE* fp = fopen(cache_path, "wb");
+    mkdir(cache_path, 0755)
+    
+    char cache_file[PATH_MAX];
+    snprintf(cache_file, sizeof(cache_file), "%s/Packages.gz" , cache_path)
+    
+    FILE* fp = fopen(cache_file, "wb");
     if (!fp) {
         perror("Failed to open cache file");
         return 1;
