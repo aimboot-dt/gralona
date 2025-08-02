@@ -24,7 +24,7 @@ void update_all()     { puts("Updating all packages..."); }
 int main(int argc, char *argv[]) {
     int opt;
     
-    load_repos("repos.list");
+    load_repos();
    while ((opt = getopt(argc, argv, "isdurUR")) != -1) {
         switch (opt) {
 	    case 'i': install(); break;
