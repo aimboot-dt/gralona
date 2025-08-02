@@ -16,7 +16,7 @@ void load_repos() {
 
     char line[600];
     while (fgets(line, sizeof(line), fp) && repo_count < MAX_REPOS) {
-        if (line[0] == '#' || line[0] == '\n') continue;
+        if (line[0] == '#' || line[0] == '\n' || line[0] == '\0') continue;
 
         char *start = strchr(line, '[');
         char *end = strchr(line, ']');

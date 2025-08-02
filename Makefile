@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-Wall -O2 -I src/inc
+CFLAGS=-Wall -O2 -I src/inc -lcurl
 TARGET=build/gralona
 SRC:= $(wildcard src/*.c)
 OBJ:= $(SRC:.c=.o)
@@ -7,10 +7,10 @@ OBJ:= $(SRC:.c=.o)
 all: $(TARGET)
 
 $(TARGET): $(OBJ)
-	$(CC) $(CFLAGS) -o $(TARGET) $(OBJ)
+	$(CC) -o $(TARGET) $(OBJ) $(CFLAGS)
 
 src/%.o: src/%.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) -c $< -o $@ $(CFLAGS)
 
 clean:
 	rm -f $(TARGET)

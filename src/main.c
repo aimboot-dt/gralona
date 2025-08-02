@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <unistd.h>
 #include "repos.h"
-#include "refresh.h"
+#include "refresh_cache_all.h"
+#include "refresh_repo.h"
 #include "package_parser.h"
 
 /* #include "refresh_cache.h"
