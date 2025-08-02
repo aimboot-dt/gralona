@@ -3,11 +3,11 @@
 #include <string.h>
 #include <curl/curl.h>
 #include <sys/stat.h>
-#include <unistd.h>
+#include <sys/types.h>
 #include <errno.h>
 #include "repos.h"
 #include "refresh_repo.h" 
-
+#include "mkdir_p.h"
 
 
 static size_t write_data(void* ptr, size_t size, size_t nmemb, FILE* stream) { return fwrite(ptr, size, nmemb, stream); }
@@ -24,11 +24,12 @@ int refresh_repo(const Repo* repo) {
 
     char cache_path[PATH_MAX];
     snprintf(cache_path, sizeof(cache_path), "%s/.local/gralona/cache/%s", home, repo->name);
-    
+    if (mkdir_p(cache_path) !=0) { perror("cache directory init failed"); return 1; }
+    /* bad code 
     char make_cache_dir[PATH_MAX];
     snprintf (make_cache_dir, sizeof(make_cache_dir), “mkdir -p %s”, cache_path)
     system(make_cache_dir);
-    
+    */
     if(mkdir(cache_path, 0755) == -1 && errno != EEXIST) { perror("mkdir failed"); return 1; }
     
     char cache_file[PATH_MAX];
