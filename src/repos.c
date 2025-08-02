@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "repos.h"
+#include "open_repo_list.h"
 
 Repo repos[MAX_REPOS];
 int repo_count = 0;

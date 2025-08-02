@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <open_repo_list.h>
 
 #define REPOS_LIST_PATH_LEN 512
 
-FILE *open_repos_list() {
+FILE* open_repo_list() {
     const char *home = getenv("HOME");
     if (!home) {
         fprintf(stderr, "HOME environment variable not set.\n");

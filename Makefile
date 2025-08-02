@@ -1,7 +1,8 @@
 CC=gcc
 CFLAGS=-Wall -O2 -I src/inc
 TARGET=build/gralona
-OBJ=src/main.o src/refresh.o src/repos.o src/package_parser.o
+SRC:= $(wildcard src/*.c)
+OBJ:= $(SRC:.c=.o)
 
 all: $(TARGET)
 
