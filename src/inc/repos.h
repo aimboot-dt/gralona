@@ -4,7 +4,7 @@
 #define MAX_REPOS 32
 
 
-void load_repos(const char* filename);
+void load_repos(void);
 
 typedef struct {
     char name[128];
