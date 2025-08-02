@@ -7,7 +7,7 @@ OBJ:= $(SRC:.c=.o)
 all: $(TARGET)
 
 $(TARGET): $(OBJ)
-	$(CC) -o $(TARGET) $(OBJ) $(CFLAGS)
+	$(CC)  $(OBJ) $(CFLAGS) -o $(TARGET)
 
 src/%.o: src/%.c
 	$(CC) -c $< -o $@ $(CFLAGS)
