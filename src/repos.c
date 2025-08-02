@@ -7,7 +7,7 @@ Repo repos[MAX_REPOS];
 int repo_count = 0;
 
 void load_repos(const char* filename) {
-    FILE* fp = fopen(filename, "r");
+    FILE* fp = open_repo_list();
     if (!fp) {
         perror("Failed to open repos.list");
         return;
