@@ -4,8 +4,11 @@
 #include <curl/curl.h>
 #include <sys/stat.h>
 #include <unistd.h>
+#include <errno.h>
 #include "repos.h"
 #include "refresh_repo.h" 
+
+
 
 static size_t write_data(void* ptr, size_t size, size_t nmemb, FILE* stream) { return fwrite(ptr, size, nmemb, stream); }
 
@@ -21,10 +24,15 @@ int refresh_repo(const Repo* repo) {
 
     char cache_path[PATH_MAX];
     snprintf(cache_path, sizeof(cache_path), "%s/.local/gralona/cache/%s", home, repo->name);
-    mkdir(cache_path, 0755)
+    
+    char make_cache_dir[PATH_MAX];
+    snprintf (make_cache_dir, sizeof(make_cache_dir), “mkdir -p %s”, cache_path)
+    system(make_cache_dir);
+    
+    if(mkdir(cache_path, 0755) == -1 && errno != EEXIST) { perror("mkdir failed"); return 1; }
     
     char cache_file[PATH_MAX];
-    snprintf(cache_file, sizeof(cache_file), "%s/Packages.gz" , cache_path)
+    snprintf(cache_file, sizeof(cache_file), "%s/Packages.gz" , cache_path);
     
     FILE* fp = fopen(cache_file, "wb");
     if (!fp) {
