@@ -5,10 +5,12 @@
 #include <stdio.h>
 #include "refresh.h"
 
+const char *home = getenv("HOME");
+
 void refresh_cache_all() {
     for (int i = 0; i < repo_count; ++i) {
         char folder[128];
-        snprintf(folder, sizeof(folder), "~/.local/gralona/cache/%s", repos[i].name);
+        snprintf(folder, sizeof(folder), "%s/.local/gralona/cache/%s", home, repos[i].name);
 
         // Make folder if it doesn't exist
         if (access(folder, F_OK) != 0) {
