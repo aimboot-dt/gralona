@@ -62,7 +62,7 @@ You can customize the repository URL in gralona.sh.
 	Feature | Status
 	:--- | ---:
 	Package search|✅ Built-in
-	.deb download | ✅ ✅ 
+	.deb download |✅ Using curl
 	Installation |	✅ dpkg -i 
 	Auto-fix deps |🔨 Future 
 	Version aware |🔨 Future 
