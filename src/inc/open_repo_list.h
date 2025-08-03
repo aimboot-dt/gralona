@@ -3,6 +3,6 @@
 
 #include <stdio.h>
 
-FILE* open_repo_list(void);
+FILE* open_repo_list();
 #endif
 
