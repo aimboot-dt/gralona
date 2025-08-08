@@ -17,19 +17,6 @@ typedef struct {
     int depends_count;
 } Package;
 
-typedef struct PackageNode {
-    Package pkg;
-    struct PackageNode *next;
-} PackageNode;
-
-
-typedef struct {
-    Package* pkgs;
-    size_t count;
-    size_t capacity;
-} PackageList;
-
-
-PackageNode *parse_packages_file(const char *filepath);
+Package *parse_packages_file(const char *filepath, int *count);
 
 #endif // PACKAGE_PARSER_H
