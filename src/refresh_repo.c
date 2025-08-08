@@ -32,8 +32,9 @@ int refresh_repo(const Repo* repo) {
     */
     if(mkdir(cache_path, 0755) == -1 && errno != EEXIST) { perror("mkdir failed"); return 1; }
     
-    char cache_file[PATH_MAX];
-    snprintf(cache_file, sizeof(cache_file), "%s/Packages.gz" , cache_path);
+    char cache_file[PATH_MAX+13];
+    char pkg_list_name[] = "/Packages.gz";
+    snprintf(cache_file, sizeof(cache_file), "%s%s" , cache_path, pkg_list_name);
     
     FILE* fp = fopen(cache_file, "wb");
     if (!fp) {
