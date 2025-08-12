@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 
 # Set repo and cache dir
 REPO_URL="http://packages.linuxmint.com/dists/elsie/main/binary-amd64/Packages.gz"
