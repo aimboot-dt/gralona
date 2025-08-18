@@ -56,7 +56,7 @@ int parse_packages(const char *filepath, Package* packages, size_t pkg_count) {
 int load_repo_package_list(Repo *repo) {
     if (!repo) return -1;
    
-    char* home = getenv("HOME")
+    char* home = getenv("HOME");
     if (!home) {perror("unable to get home env"); return -1;}
     char cache_path[4096];
     snprintf(cache_path, sizeof(cache_path), "%s/.local/gralona/cache/%s", home, repo->name);
