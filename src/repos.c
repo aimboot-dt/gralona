@@ -44,3 +44,30 @@ void load_repos() {
     fclose(fp);
 }
 
+int binary_search_for_repo(const char *name) {
+    int left = 0;
+    int right = sizeof(repos)/sizeof(repos[0]);
+
+     while (left <= right) {
+        int mid = left + (right - left) / 2;
+        int cmp = strcmp(repos[mid].name, name);
+
+        if (cmp == 0) {
+            return mid;  // found
+        } else if (cmp < 0) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    return -1;
+
+}
+int search_for_repo(const char *name) {
+    for (int i = 0; i < sizeof(repos); i++){
+        if (strcmp(repos[i].name, name) == 0) return i;
+    }
+    return -1;
+}
+
+

@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-Wall -O2 -I src/inc -lcurl
+CFLAGS=-Wall -g -O2 -I src/inc -lcurl -lz
 TARGET=build/gralona
 SRC:= $(wildcard src/*.c)
 OBJ:= $(SRC:.c=.o)

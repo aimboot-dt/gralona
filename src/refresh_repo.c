@@ -8,9 +8,35 @@
 #include "repos.h"
 #include "refresh_repo.h" 
 #include "mkdir_p.h"
-
+#include "zlib.h"
 
 static size_t write_data(void* ptr, size_t size, size_t nmemb, FILE* stream) { return fwrite(ptr, size, nmemb, stream); }
+
+
+int decompress_gz(const char *src, const char *dst) {
+    gzFile gzfp = gzopen(src, "rb");
+    if (!gzfp) {
+        perror("gzopen failed");
+        return -1;
+    }
+
+    FILE *outfp = fopen(dst, "wb");
+    if (!outfp) {
+        perror("fopen failed");
+        gzclose(gzfp);
+        return -1;
+    }
+
+    char buffer[8192];
+    int bytes;
+    while ((bytes = gzread(gzfp, buffer, sizeof(buffer))) > 0) {
+        fwrite(buffer, 1, bytes, outfp);
+    }
+
+    gzclose(gzfp);
+    fclose(outfp);
+    return 0;
+}
 
 int refresh_repo(const Repo* repo) {
     CURL* curl;
@@ -65,6 +91,13 @@ int refresh_repo(const Repo* repo) {
     curl_easy_cleanup(curl);
     fclose(fp);
 
+    char decompressed_file[PATH_MAX+12];
+    snprintf(decompressed_file, sizeof(decompressed_file), "%s/Packages", cache_path);
+
+    if (decompress_gz(cache_file, decompressed_file) != 0) {
+        fprintf(stderr, "Failed to decompress %s\n", cache_file);
+        return 1;
+}
     return res != CURLE_OK;
 }
 

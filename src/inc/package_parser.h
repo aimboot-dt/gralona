@@ -17,6 +17,7 @@ typedef struct {
     int depends_count;
 } Package;
 
-Package *parse_packages_file(const char *filepath, int *count);
+void display_package(Package* package);
+
 
 #endif // PACKAGE_PARSER_H
