@@ -34,7 +34,7 @@ Package* search_package_in_repo(Repo *repo, const char *name) {
 
 int install_package_from_repo (Repo *repo, Package* pkg_to_install) {
   if (pkg_to_install == NULL) {fprintf(stderr, "Package not found! try searching for it."); return -1;}
-  printf("Installing Package: %s",pkg_to_install->name);
+  printf("Installing Package: %s\n",pkg_to_install->name);
   return 0;
 }
 

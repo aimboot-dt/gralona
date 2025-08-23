@@ -64,7 +64,7 @@ int binary_search_for_repo(const char *name) {
 
 }
 int search_for_repo(const char *name) {
-    for (int i = 0; i < sizeof(repos); i++){
+    for (int i = 0; i < sizeof(repos)/sizeof(repos[0]); i++){
         if (strcmp(repos[i].name, name) == 0) return i;
     }
     return -1;

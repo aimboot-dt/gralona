@@ -30,7 +30,8 @@ int main(int argc, char *argv[]) {
    while ((opt = getopt(argc, argv, "i:s:d:u:r:UR")) != -1) {
         switch (opt) {
             case 'r': 
-                if(search_for_repo(optarg) > 0) {current_repo_idx = search_for_repo(optarg);} 
+                if(search_for_repo(optarg) == -1) {fprintf (stderr, "Repo not found... check repos.list"); return 1;} 
+                current_repo_idx = search_for_repo(optarg);  
                 printf("in repo %s\n", repos[current_repo_idx].name);
                 if(load_repo_packages(&repos[current_repo_idx]) != 0) {
                     fprintf(stderr, "Loading repos failed");
